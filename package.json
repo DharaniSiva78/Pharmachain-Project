@@ -1,0 +1,23 @@
+{
+  "name": "pharmachain-project",
+  "version": "1.0.0",
+  "description": "Blockchain-based pharmaceutical supply chain management",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "node": "hardhat node",
+    "test": "hardhat test",
+    "clean": "hardhat clean"
+  },
+  "keywords": ["blockchain", "pharmaceutical", "supply-chain", "ethereum"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3"
+  }
+}

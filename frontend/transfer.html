@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transfer Batch | PharmaChain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="index.html" style="color: white; text-decoration: none;"><h2>💊 PharmaChain</h2></a>
+      <ul>
+        <li><a href="register.html">Register Batch</a></li>
+        <li><a href="transfer.html" class="active" style="color: lightblue;">Transfer Batch</a></li>
+        <li><a href="spoil.html">Mark Spoiled</a></li>
+        <li><a href="expire.html">Auto Expire</a></li>
+        <li><a href="updateCert.html">Update Certificate</a></li>
+        <li><a href="view.html">View Batch</a></li>
+      </ul>
+      <button id="connectWallet">🔗 Connect Wallet</button>
+      <p id="walletAddress"></p>
+    </nav>
+
+    <main class="content">
+      <div id="formContainer" class="card">
+        <h2>🔄 Transfer Batch</h2>
+        <input type="text" id="transferBatchId" placeholder="Batch ID" />
+        <input type="text" id="transferTo" placeholder="Receiver Address (0x...)" />
+        <button id="transferBtn">Transfer Batch</button>
+        <div id="result" class="result hidden"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="transfer.js"></script>
+</body>
+</html>

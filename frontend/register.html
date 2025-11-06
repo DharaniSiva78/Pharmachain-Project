@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Batch | PharmaChain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="index.html" style="color: white; text-decoration: none;"><h2>💊 PharmaChain</h2></a>
+      <ul>
+        <li><a href="register.html" class="active" style="color: lightblue;">Register Batch</a></li>
+        <li><a href="transfer.html">Transfer Batch</a></li>
+        <li><a href="spoil.html">Mark Spoiled</a></li>
+        <li><a href="expire.html">Auto Expire</a></li>
+        <li><a href="updateCert.html">Update Certificate</a></li>
+        <li><a href="view.html">View Batch</a></li>
+      </ul>
+      <button id="connectWallet">🔗 Connect Wallet</button>
+      <p id="walletAddress"></p>
+    </nav>
+
+    <main class="content">
+      <div id="formContainer" class="card">
+        <h2>🆕 Register New Batch</h2>
+        <input type="text" id="batchId" placeholder="Batch ID" />
+        <input type="text" id="drugName" placeholder="Drug Name" />
+        <input type="text" id="manufacturer" placeholder="Manufacturer" />
+        <input type="text" id="origin" placeholder="Origin" />
+        <label>Manufacture Date</label>
+        <input type="date" id="manufactureDate" />
+        <label>Expiry Date</label>
+        <input type="date" id="expiryDate" />
+        <input type="text" id="certificateHash" placeholder="Certificate Hash" />
+        <button id="registerBtn">Register Batch</button>
+        <div id="result" class="result hidden"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>

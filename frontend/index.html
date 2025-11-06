@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PharmaChain DApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <a href="index.html"><h2>💊 PharmaChain</h2></a>
+      <ul>
+        <li><a href="register.html">Register Batch</a></li>
+        <li><a href="transfer.html">Transfer Batch</a></li>
+        <li><a href="spoil.html">Mark Spoiled</a></li>
+        <li><a href="expire.html">Auto Expire</a></li>
+        <li><a href="updateCert.html">Update Certificate</a></li>
+        <li><a href="view.html">View Batch</a></li>
+      </ul>
+      <button id="connectWallet">🔗 Connect Wallet</button>
+      <p id="walletAddress"></p>
+    </nav>
+
+    <!-- Center Content -->
+    <main class="content">
+      <div id="placeholder">
+        <h1>Welcome to PharmaChain Dashboard</h1>
+        <p>Select an action from the left panel to begin.</p>
+        <div class="features">
+          <div class="feature-card">
+            <h3>🔐 Secure Tracking</h3>
+            <p>Track pharmaceutical batches on blockchain</p>
+          </div>
+          <div class="feature-card">
+            <h3>⏰ Auto Expiry</h3>
+            <p>Automatic expiration detection</p>
+          </div>
+          <div class="feature-card">
+            <h3>📜 Certificate Management</h3>
+            <p>Manage quality certificates securely</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script>
+    // Wallet connection for main page
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          const signer = await provider.getSigner();
+          const address = await signer.getAddress();
+          document.getElementById('walletAddress').textContent = 
+            `Connected: ${address.substring(0, 6)}...${address.substring(38)}`;
+          document.getElementById('connectWallet').textContent = '✅ Connected';
+        } catch (error) {
+          console.error("Error connecting wallet:", error);
+        }
+      } else {
+        alert('Please install MetaMask!');
+      }
+    }
+
+    document.getElementById('connectWallet').addEventListener('click', connectWallet);
+  </script>
+</body>
+</html>
